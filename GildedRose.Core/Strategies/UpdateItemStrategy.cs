@@ -9,10 +9,12 @@ namespace GildedRose.Core.Strategies
     /// </summary>
     public class UpdateItemStrategy : IUpdateItemStrategy
     {
+        public virtual int DecreasingFactor { get; set; } = 1;
+
         public void Update(Item item)
         {
-            var decreasingFactor = item.SellIn <= 0 ? 2 : 1;
-            item.Quality = item.Quality.SubstractDownToMin(decreasingFactor, 0);
+            var decrement = item.SellIn <= 0 ? 2 * DecreasingFactor : 1 * DecreasingFactor;
+            item.Quality = item.Quality.SubstractDownToMin(decrement, 0);
 
             item.SellIn--;
         }

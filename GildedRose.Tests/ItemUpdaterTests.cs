@@ -326,6 +326,30 @@ namespace GildedRose.Tests
             items.First(i => i.Name == "Conjured Mana Cake").Quality.Should().Be(3);  // 20 - 3 (BeforeSell) - 7 * 2 (AfterSell) = 3. 
         }
 
+        // Conjured items degrade twice as fast as regular items
+        [Fact]
+        public void IfConjuredItem_WhenPassedSellDate_QualityDegradesTwiceAsFast()
+        {
+            // Arrange
+            var amountOfDays = 10;
+
+            var items = new List<Item>
+                {
+                    new Item {Name = "Conjured Item", SellIn = 3, Quality = 50},
+                };
+
+            var sut = new ItemUpdater();
+
+            // Act
+            for (int i = 0; i < amountOfDays; i++)
+            {
+                sut.UpdateQuality(items);
+            }
+
+            // Assert
+            items.First().Quality.Should().Be(16);  // 50 - 3 * 2 (BeforeSell) - 7 * 2 * 2 (AfterSell) = 24
+        }
+
         [Fact]
         public void IfSulfuras_ParametersRemainConstant()
         {
