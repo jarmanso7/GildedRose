@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{B8B88B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GildedRose.Console", "src\GildedRose.Console\GildedRose.Console.csproj", "{F2E879A9-7F1C-4C34-AB0D-2662F9815046}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Tests", "GildedRose.Tests\GildedRose.Tests.csproj", "{01FB6C4A-36BE-429E-AF61-FF3DCD1C1815}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Core.Tests", "GildedRose.Tests\GildedRose.Core.Tests.csproj", "{01FB6C4A-36BE-429E-AF61-FF3DCD1C1815}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GildedRose.Core", "GildedRose.Core\GildedRose.Core.csproj", "{DB73FC1B-B63A-4F75-8D4E-B97E151F6A93}"
 EndProject

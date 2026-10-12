@@ -26,7 +26,7 @@ namespace GildedRose.Console
                 };
 
 
-            var qualityProcessor = new QualityProcessor();
+            var qualityProcessor = new ItemUpdater();
 
             qualityProcessor.UpdateQuality(items);
 

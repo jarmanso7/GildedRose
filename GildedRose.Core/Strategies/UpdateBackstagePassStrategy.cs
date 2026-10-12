@@ -1,11 +1,10 @@
 ﻿using GildedRose.Core.Helper;
 using GildedRose.Models;
-using System.Runtime.CompilerServices;
 
 namespace GildedRose.Core.Strategies
 {
     /// <summary>
-    /// Increases quality over time before an on sell date. Collapses quality to 0 after sell date.
+    /// Increases quality over time before an sell date. Collapses quality to 0 on or after sell date.
     /// 10 days to 6 days before sell date, increases quality by 2. 5 days to the sell date, increases quality by 3.
     /// </summary>
     public class UpdateBackstagePassStrategy : IUpdateItemStrategy
@@ -24,7 +23,7 @@ namespace GildedRose.Core.Strategies
                 item.Quality = item.Quality.AddUpToMax(2, 50);
             }
 
-            else if (5 >= item.SellIn && item.SellIn >= 0)
+            else if (5 >= item.SellIn && item.SellIn > 0)
             {
                 item.Quality = item.Quality.AddUpToMax(3, 50);
             }

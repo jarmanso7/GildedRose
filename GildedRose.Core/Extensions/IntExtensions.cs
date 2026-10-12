@@ -6,7 +6,7 @@ namespace GildedRose.Core.Helper
     {
         public static int AddUpToMax(this int a, int addend, int max)
         {
-            return a + max > max ? max : a + max;
+            return a + addend > max ? max : a + addend;
         }
 
         public static int SubstractDownToMin(this int a, int subtrahend, int min)

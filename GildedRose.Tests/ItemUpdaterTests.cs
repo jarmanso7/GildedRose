@@ -4,7 +4,7 @@ using GildedRose.Models;
 
 namespace GildedRose.Tests
 {
-    public class QualityProcessorTests
+    public class ItemUpdaterTests
     {
         /*  Business Rules
 
@@ -39,7 +39,7 @@ namespace GildedRose.Tests
 
             var amountOfDays = 50;
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act. Run for 50 days
             for(int i = 0; i < amountOfDays; i++)
@@ -71,7 +71,7 @@ namespace GildedRose.Tests
 
             var amountOfDays = 3;
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act. Run for 3 days
             for (int i = 0; i < amountOfDays; i++)
@@ -102,7 +102,7 @@ namespace GildedRose.Tests
                         },
                 };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act. Run for 50 days
             for (int i = 0; i < amountOfDays; i++)
@@ -129,7 +129,7 @@ namespace GildedRose.Tests
                     new Item {Name = "Aged Brie", SellIn = 2, Quality = 5}
                 };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act
             for (int i = 0; i < amountOfDays; i++)
@@ -160,7 +160,7 @@ namespace GildedRose.Tests
                 }
             };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act
             for (int i = 0; i < amountOfDays; i++)
@@ -191,7 +191,7 @@ namespace GildedRose.Tests
                 }
             };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act
             for (int i = 0; i < amountOfDays; i++)
@@ -222,7 +222,7 @@ namespace GildedRose.Tests
                 }
             };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act
             for (int i = 0; i < amountOfDays; i++)
@@ -253,7 +253,7 @@ namespace GildedRose.Tests
                 }
             };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act
             for (int i = 0; i < amountOfDays; i++)
@@ -285,7 +285,7 @@ namespace GildedRose.Tests
                     new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
                 };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act. Run for 50 days
             for (int i = 0; i < amountOfDays; i++)
@@ -312,7 +312,7 @@ namespace GildedRose.Tests
                     new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 20}
                 };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act
             for (int i = 0; i < amountOfDays; i++)
@@ -337,7 +337,7 @@ namespace GildedRose.Tests
                     new Item {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80}
                 };
 
-            var sut = new QualityProcessor();
+            var sut = new ItemUpdater();
 
             // Act
             for (int i = 0; i < amountOfDays; i++)
