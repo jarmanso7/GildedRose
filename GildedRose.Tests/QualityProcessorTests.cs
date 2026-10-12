@@ -4,7 +4,7 @@ using GildedRose.Models;
 
 namespace GildedRose.Tests
 {
-    public class Tests
+    public class QualityProcessorTests
     {
         /*  Business Rules
 
