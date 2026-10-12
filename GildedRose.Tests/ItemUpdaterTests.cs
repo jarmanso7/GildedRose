@@ -53,23 +53,18 @@ namespace GildedRose.Tests
         }
 
         [Fact]
-        public void BeforeSellDate_QualityIsPositive()
+        public void BeforeSellDate_QualityDecreasesByOne()
         {
             // Arrange
+            var amountOfDays = 3;
+
+            var vestInitialQuality = 20;
+            var elixirInitialQuality = 7;
             var items = new List<Item>
                 {
-                    new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-                    new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                    new Item
-                        {
-                            Name = "Backstage passes to a TAFKAL80ETC concert",
-                            SellIn = 15,
-                            Quality = 20
-                        },
-                    new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+                    new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = vestInitialQuality},
+                    new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = elixirInitialQuality}
                 };
-
-            var amountOfDays = 3;
 
             var sut = new ItemUpdater();
 
@@ -81,7 +76,8 @@ namespace GildedRose.Tests
 
             // Assert
             items.Should().NotBeEmpty();
-            items.All(i => i.Quality > 0).Should().BeTrue();
+            items.First(i => i.Name == "+5 Dexterity Vest").Quality.Should().Be(vestInitialQuality - amountOfDays);
+            items.First(i => i.Name == "Elixir of the Mongoose").Quality.Should().Be(elixirInitialQuality - amountOfDays);
         }
 
         [Fact]
@@ -308,8 +304,7 @@ namespace GildedRose.Tests
             var items = new List<Item>
                 {
                     new Item {Name = "+5 Dexterity Vest", SellIn = 6, Quality = 20},
-                    new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 20},
-                    new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 20}
+                    new Item {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 20}
                 };
 
             var sut = new ItemUpdater();
@@ -323,7 +318,6 @@ namespace GildedRose.Tests
             // Assert
             items.First(i => i.Name == "+5 Dexterity Vest").Quality.Should().Be(6);  // 20 - 6 (BeforeSell) - 4 * 2 (AfterSell) = 6. 
             items.First(i => i.Name == "Elixir of the Mongoose").Quality.Should().Be(5);  // 20 - 5 (BeforeSell) - 5 * 2 (AfterSell) = 5. 
-            items.First(i => i.Name == "Conjured Mana Cake").Quality.Should().Be(3);  // 20 - 3 (BeforeSell) - 7 * 2 (AfterSell) = 3. 
         }
 
         // Conjured items degrade twice as fast as regular items
@@ -335,7 +329,7 @@ namespace GildedRose.Tests
 
             var items = new List<Item>
                 {
-                    new Item {Name = "Conjured Item", SellIn = 3, Quality = 50},
+                    new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 50},
                 };
 
             var sut = new ItemUpdater();
@@ -347,7 +341,7 @@ namespace GildedRose.Tests
             }
 
             // Assert
-            items.First().Quality.Should().Be(16);  // 50 - 3 * 2 (BeforeSell) - 7 * 2 * 2 (AfterSell) = 24
+            items.First().Quality.Should().Be(16);  // 50 - 3 * 2 (BeforeSell) - 7 * 2 * 2 (AfterSell) = 16
         }
 
         [Fact]

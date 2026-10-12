@@ -11,7 +11,7 @@ namespace GildedRose.Core.Factories
                 "Aged Brie" => new UpdateAgedBrieStrategy(),
                 "Backstage passes to a TAFKAL80ETC concert" => new UpdateBackstagePassStrategy(),
                 "Sulfuras, Hand of Ragnaros" => new UpdateLegendaryItemStrategy(),
-                "Conjured Item" => new UpdateConjuredItemStrategy(),
+                "Conjured Mana Cake" => new UpdateConjuredItemStrategy(),
                 _ => new UpdateItemStrategy()
             };
         }
